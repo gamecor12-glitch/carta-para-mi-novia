@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Para Ti ❤️</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI,sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+min-height:100vh;
+overflow-x:hidden;
+text-align:center;
+}
+
+.container{
+margin-top:120px;
+}
+
+.envelope{
+width:250px;
+height:170px;
+background:#ff6b8a;
+margin:auto;
+position:relative;
+cursor:pointer;
+border-radius:10px;
+}
+
+.envelope:before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:0;
+height:0;
+border-left:125px solid transparent;
+border-right:125px solid transparent;
+border-top:85px solid #ff8fab;
+transform-origin:top;
+transition:1s;
+}
+
+.open:before{
+transform:rotateX(180deg);
+}
+
+.letter{
+display:none;
+background:white;
+max-width:800px;
+margin:40px auto;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+h1{
+color:#ff4f7a;
+margin-bottom:20px;
+}
+
+.gallery{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:30px;
+margin-top:30px;
+}
+
+.polaroid{
+background:white;
+padding:10px 10px 30px;
+width:250px;
+box-shadow:0 10px 25px rgba(0,0,0,.2);
+transform:rotate(-5deg);
+transition:.3s;
+}
+
+.polaroid:nth-child(2){
+transform:rotate(6deg);
+}
+
+.polaroid:nth-child(3){
+transform:rotate(-8deg);
+}
+
+.polaroid:nth-child(4){
+transform:rotate(5deg);
+}
+
+.polaroid:hover{
+transform:scale(1.05);
+}
+
+.polaroid img{
+width:100%;
+height:250px;
+object-fit:cover;
+}
+
+.polaroid p{
+margin-top:10px;
+font-style:italic;
+}
+
+.heart{
+position:fixed;
+bottom:-50px;
+font-size:25px;
+animation:float 6s linear infinite;
+}
+
+@keyframes float{
+to{
+transform:translateY(-110vh);
+opacity:0;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<audio id="musica" loop>
+<source src="cancion.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+
+<h2>Haz clic en el sobre 💌</h2>
+
+<br>
+
+<div class="envelope" id="sobre"></div>
+
+</div>
+
+<div class="letter" id="carta">
+
+<h1>Para [Sofi]</h1>
+
+<p>
+
+Querida [Sofi],
+
+Quería hacer algo diferente para recordarte lo importante que eres para mí.
+
+Gracias por cada momento, cada sonrisa y cada recuerdo que hemos construido juntos.
+
+Eres lo más importante en mi vida y no quiero perderte nunca, quiero estar contigo toda la vida. Desde el primer momento sabia que eras única en el mundo y eres todo lo que quiero y más. De verdad no tienes idea de el orgullo que me da decir que eres mi novia y lo afortunado que soy de tenerte conmigo.
+
+Te amo muchísimo ❤️
+
+Con cariño,
+
+[Yeyo]
+
+</p>
+
+<div class="gallery">
+
+<div class="polaroid">
+<img src="foto1.jpg">
+<p>Nuestra última foto juntos ❤️</p>
+</div>
+
+<div class="polaroid">
+<img src="foto2.jpg">
+<p>Siempre contigo 📸</p>
+</div>
+
+<div class="polaroid">
+<img src="foto3.jpg">
+<p>Uno de mis días favoritos ✨</p>
+</div>
+
+<div class="polaroid">
+<img src="foto4.jpg">
+<p>Por muchos recuerdos más 💕</p>
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+const sobre=document.getElementById("sobre");
+
+sobre.addEventListener("click",()=>{
+
+sobre.classList.add("open");
+
+document.getElementById("carta").style.display="block";
+
+document.getElementById("musica").play();
+
+window.scrollTo({
+top:500,
+behavior:"smooth"
+});
+
+});
+
+function crearCorazon(){
+
+const heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},6000);
+
+}
+
+setInterval(crearCorazon,500);
+
+</script>
+
+</body>
+</html>
